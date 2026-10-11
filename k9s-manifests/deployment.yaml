@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gomaxprocs-replicator
+  labels:
+    app: gomaxprocs-replicator
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: gomaxprocs-replicator
+  template:
+    metadata:
+      labels:
+        app: gomaxprocs-replicator
+    spec:
+      containers:
+      - name: replicator
+        # Replace with the registry where you pushed the built image
+        image: quay.io/your-namespace/gomaxprocs-replicator:latest 
+        resources:
+          requests:
+            cpu: "100m"
+          limits:
+            cpu: "200m" # Hard limit of 0.2 CPU cores
