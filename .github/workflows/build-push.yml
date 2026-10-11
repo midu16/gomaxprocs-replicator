@@ -10,7 +10,7 @@ on:
 
 env:
   REGISTRY: quay.io
-  IMAGE_NAME: midu/gomaxprocs-replicator:latest
+  IMAGE_NAME: midu/gomaxprocs-replicator
 
 jobs:
   build:
