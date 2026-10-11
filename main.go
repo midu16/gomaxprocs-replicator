@@ -11,7 +11,7 @@ import (
 )
 
 func main() {
-	fmt.Println("=== Go 1.24 GOMAXPROCS Replicator ===")
+	fmt.Println("=== GOMAXPROCS Replicator ===")
 	fmt.Printf("Go version: %s\n", runtime.Version())
 	fmt.Printf("Host Logical CPUs (runtime.NumCPU): %d\n", runtime.NumCPU())
 	fmt.Printf("Default GOMAXPROCS: %d\n", runtime.GOMAXPROCS(0))

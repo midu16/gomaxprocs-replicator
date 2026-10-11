@@ -23,6 +23,20 @@ podman run --rm -it -e GOMAXPROCS=2 --cpus="0.2" quay.io/midu/gomaxprocs-replica
 * **GOMAXPROCS set to:** 2
 * **Execution Time:** **11.19 milliseconds**
 
+### Run 3: Default Behaviour (Untuned) with go-1.25
+```bash
+podman run --rm -it --cpus="0.2" quay.io/midu/gomaxprocs-replicator:latest-1.25
+=== GOMAXPROCS Replicator ===
+Go version: go1.25.14
+Host Logical CPUs (runtime.NumCPU): 32
+Default GOMAXPROCS: 2
+=====================================
+Starting CPU burst simulation...
+Burst completed in: 86.316936ms
+If running under a tight K8s CPU limit, this time will be artificially inflated due to severe CFS throttling.
+Container is now idling. Press Ctrl+C to exit.
+```
+
 ## What Do These Results Prove?
 
 By simply telling the Go runtime to use 2 OS threads instead of 32, the exact same mathematical workload completed **over 420 times faster** (from 4,780ms down to 11ms). 
